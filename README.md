@@ -11,7 +11,8 @@ This is a simple plugin manager / service locator for NodeJS. It is just posted 
         { 
           "module":"palindrome", 
           "dir":"locomotion-plugin-example",
-          "source":"https://github.com/drcircuit/locomotion-plugin-example.git"}
+          "source":"https://github.com/drcircuit/locomotion-plugin-example.git"
+        }
     ] 
   }
   ```
