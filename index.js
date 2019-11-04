@@ -2,7 +2,7 @@
 const git = require("simple-git")("./");
 const fs = require("fs");
 const path = require("path");
-if(!fs.existsSync("./plugins.json")){
+if (!fs.existsSync("./plugins.json")) {
     throw "You need to create a plugins.json file!";
 }
 const pluginCfg = JSON.parse(fs.readFileSync("./plugins.json"));
@@ -26,14 +26,14 @@ module.exports = new Promise((resolve, reject) => {
         pluginCfg.plugins.forEach(p => {
             //load up all services into the service list, in a real world example you probably need to add configurations and stuff, 
             //I recommend the builder pattern for this...
-            let modPath = path.join(pluginCfg.path, p.dir, "index.js").replace(new RegExp(/\\/g),"/");;
-            services[p.module] = require("./"+modPath);
-            console.info("added: "+p.module);
+            let modPath = path.join(process.cwd(), pluginCfg.path, p.dir, "index.js").replace(new RegExp(/\\/g), "/");;
+            services[p.module] = require(modPath);
+            console.info("added: " + p.module);
         });
         let locator = {
             //function to find a service in the list
-            locate:function(service){
-                if(services[service]){
+            locate: function (service) {
+                if (services[service]) {
                     return services[service];
                 } else {
                     return null;
