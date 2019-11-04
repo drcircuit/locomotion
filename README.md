@@ -8,8 +8,12 @@ This is a simple plugin manager / service locator for NodeJS. It is just posted 
   {
     "path": "./plugins",
     "plugins": [
-        { "module":"palindrome", "dir":"locomotion-plugin-example","source":"https://github.com/drcircuit/locomotion-plugin-example.git"}
+        { 
+          "module":"palindrome", 
+          "dir":"locomotion-plugin-example",
+          "source":"https://github.com/drcircuit/locomotion-plugin-example.git"}
     ] 
   }
+  ```
 - create your plugins, they will have to have a git repo and use module.exports to work.
 - use the .locate(service) function to grab a service instance.
