@@ -18,9 +18,9 @@ module.exports = new Promise((resolve, reject) => {
         let plugPath = path.join(pluginCfg.path, p.dir);
         // clone or pull latest version || roll your own version handling using tags or whatever.
         if (!fs.existsSync(plugPath)) {
-            return git.cwd(pluginCfg.path).clone(p.source)
+            return git.cwd(plugPath).clone(p.source)
         } else {
-            return git.cwd(pluginCfg.path).pull();
+            return git.cwd(plugPath).pull();
         }
     })).then(() => {
         pluginCfg.plugins.forEach(p => {
