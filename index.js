@@ -27,7 +27,7 @@ module.exports = new Promise((resolve, reject) => {
             //load up all services into the service list, in a real world example you probably need to add configurations and stuff, 
             //I recommend the builder pattern for this...
             let modPath = path.join(pluginCfg.path, p.dir, "index.js").replace(new RegExp(/\\/g),"/");;
-            services[p.module] = require(modPath);
+            services[p.module] = require("./"+modPath);
             console.info("added: "+p.module);
         });
         let locator = {

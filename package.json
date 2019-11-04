@@ -1,6 +1,6 @@
 {
   "name": "locomotion",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "\"# Locomotion\"",
   "main": "index.js",
   "scripts": {
