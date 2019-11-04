@@ -2,6 +2,9 @@
 const git = require("simple-git")("./");
 const fs = require("fs");
 const path = require("path");
+if(!fs.existsSync("./plugins.json")){
+    throw "You need to create a plugins.json file!";
+}
 const pluginCfg = JSON.parse(fs.readFileSync("./plugins.json"));
 const services = [];
 
