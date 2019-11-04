@@ -23,6 +23,7 @@ module.exports = new Promise((resolve, reject) => {
             return git.cwd(plugPath).pull();
         }
     })).then(() => {
+        // this is where you might want to handle building, fetching npm dependencies and so on.. I omitted that from this example.
         pluginCfg.plugins.forEach(p => {
             //load up all services into the service list, in a real world example you probably need to add configurations and stuff, 
             //I recommend the builder pattern for this...
