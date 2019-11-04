@@ -15,7 +15,7 @@ if (!fs.existsSync(pluginCfg.path)) {
 
 module.exports = new Promise((resolve, reject) => {
     Promise.all(pluginCfg.plugins.map(p => {
-        let plugPath = path.join(__dirname, pluginCfg.path, p.dir);
+        let plugPath = path.join(pluginCfg.path, p.dir);
         // clone or pull latest version || roll your own version handling using tags or whatever.
         if (!fs.existsSync(plugPath)) {
             return git.cwd(pluginCfg.path).clone(p.source)
@@ -26,7 +26,7 @@ module.exports = new Promise((resolve, reject) => {
         pluginCfg.plugins.forEach(p => {
             //load up all services into the service list, in a real world example you probably need to add configurations and stuff, 
             //I recommend the builder pattern for this...
-            let modPath = path.join(__dirname, pluginCfg.path, p.dir, "index.js").replace(new RegExp(/\\/g),"/");;
+            let modPath = path.join(pluginCfg.path, p.dir, "index.js").replace(new RegExp(/\\/g),"/");;
             services[p.module] = require(modPath);
             console.info("added: "+p.module);
         });
