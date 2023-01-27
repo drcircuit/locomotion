@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/drcircuit/locomotion#readme",
   "dependencies": {
-    "simple-git": "^1.126.0"
+    "simple-git": "^3.16.0"
   }
 }
